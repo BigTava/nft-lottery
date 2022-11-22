@@ -1,4 +1,18 @@
 {
+  "name": "nft-lottery",
+  "version": "1.0.0",
+  "description": "NFT Lottery to show-case my skills on solidity development",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "clean:local": "npx hardhat clean",
+    "test:local": "npx hardhat test --network hardhat",
+    "test:goerli": "npx hardhat test --network goerli"
+  },
+  "author": "Tiago Tavares",
+  "dependencies": {
+    "@chainlink/contracts": "^0.5.1",
+    "@openzeppelin/contracts": "^4.8.0"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "hardhat": "^2.12.2"
