@@ -1,13 +1,27 @@
-# Sample Hardhat Project
+## NFT Lottery
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+Author: Tiago Tavares
 
-Try running some of the following tasks:
+### Setup
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
+1. Install packages
+
+```
+$ npm install
+```
+
+1. Compile contracts
+
+```
+$ npm run compile
+```
+
+### Local environment
+
+#### Hardhat network
+
+1. Run tests
+
+```
+$ npm run test:local
 ```
