@@ -1,17 +1,12 @@
 // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "hardhat/console.sol";
 
-pragma solidity ^0.8.17;
-
-/*
- * @dev This contract is designed to receive a token (ERC20), mint and transfer to 
-        the msg.sender a ticket (ERC1155), sell a portion of the received ERC20 for 
-        another ERC20 (swap) and send the swapped funds to an address.
-*/
-
 error Ticket__OnlyOneTicketPerAddress();
+error Prize__PlayerAlreadyHasPrize();
 
 contract LotteryItems is ERC1155, Ownable {
 
@@ -20,7 +15,6 @@ contract LotteryItems is ERC1155, Ownable {
     uint256 public constant PRIZE = 1;
 
     //----------------- FUNCTIONS ---------------
-    
     constructor() ERC1155("") {
     }
 
@@ -29,5 +23,12 @@ contract LotteryItems is ERC1155, Ownable {
             revert Ticket__OnlyOneTicketPerAddress();
         }
         _mint(_player, TICKET, 1,"0x000");
+    }
+
+    function mintPrize(address _player) public onlyOwner {
+        if (balanceOf(_player, PRIZE) > 0) {
+            revert Prize__PlayerAlreadyHasPrize();
+        }
+        _mint(_player, PRIZE, 1,"0x000");
     }
 }

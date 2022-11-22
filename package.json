@@ -11,6 +11,7 @@
   "author": "Tiago Tavares",
   "dependencies": {
     "@chainlink/contracts": "^0.5.1",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.6",
     "@openzeppelin/contracts": "^4.8.0"
   },
   "devDependencies": {
